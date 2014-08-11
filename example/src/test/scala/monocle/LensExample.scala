@@ -6,7 +6,7 @@ import org.specs2.scalaz.Spec
 import shapeless.test.illTyped
 
 class LensExample extends Spec {
-  
+
   @Lenses // this annotation generate lenses in the companion object of Person
   case class Person(name: String, age: Int)
 
@@ -35,7 +35,7 @@ class LensExample extends Spec {
   }
 
   val john = Person("John", 30)
-  
+
   "Lens get extract an A from an S" in {
     (john  |-> SimpleLensVerbose._name get)   shouldEqual "John"
     (john  |-> SimpleLensInferred._name get)  shouldEqual "John"
